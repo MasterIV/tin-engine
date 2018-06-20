@@ -1,20 +1,17 @@
 {
   "name": "tin-engine",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple game engine to make small canvas based games using es6",
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MasterIV/tin-engine.git"
   },
-
   "keywords": [
     "game",
     "engine",
     "jam",
     "gamejam"
   ],
-
   "author": "Tobias Rojahn",
   "license": "MIT",
   "homepage": "https://github.com/MasterIV/tin-engine#readme",
