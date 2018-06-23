@@ -47,7 +47,8 @@ export default class Entity {
 	}
 
 	add(entity) {
-		entity.setParent(this);
+		if(entity.setParent)
+			entity.setParent(this);
 		this.entities.push(entity);
 	}
 
