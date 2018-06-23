@@ -1,6 +1,6 @@
 {
   "name": "tin-engine",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Simple game engine to make small canvas based games using es6",
   "repository": {
     "type": "git",
