@@ -1,4 +1,8 @@
 export default {
+	STEP(t) {
+		return t < 1 ? 0 : 1;
+	},
+
 	LINEAR(t) {
 		return t
 	},
