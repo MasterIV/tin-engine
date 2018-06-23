@@ -1,8 +1,9 @@
-import game from './game.es6';
+let game;
 
 export default {
-	init() {
+	init(g) {
 		const self = this;
+		game = g;
 
 		document.onkeydown = e => {
 			self.down(e);
@@ -14,7 +15,7 @@ export default {
 	},
 
 	emit(type, key) {
-		if (game.scene && game.scene[type])
+		if (game && game.scene && game.scene[type])
 			game.scene[type](key);
 	},
 

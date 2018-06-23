@@ -1,12 +1,13 @@
 import V2 from './../geo/v2.es6';
-import game from './../core/game.es6';
 
 const mouse = new V2(0, 0);
+var game;
 
-mouse.init = function () {
+mouse.init = function (g) {
 	const self = this;
 	const gameframe = document.getElementById('gameframe');
 	let primaryTouchId = null;
+	game = g;
 
 	const getPrimaryTouch = touches => {
 		for (let i = 0, j = touches.length; i < j; i++) {
@@ -24,17 +25,17 @@ mouse.init = function () {
 	};
 
 	gameframe.onclick = ev => {
-		if (game.scene.click)
+		if (game && game.scene && game.scene.click)
 			game.scene.click(self);
 	};
 
 	gameframe.onmousedown = ev => {
-		if (game.scene.mousedown)
+		if (game && game.scene && game.scene.mousedown)
 			game.scene.mousedown(self);
 	};
 
 	gameframe.onmouseup = ev => {
-		if (game.scene.mouseup)
+		if (game && game.scene && game.scene.mouseup)
 			game.scene.mouseup(self);
 	};
 
