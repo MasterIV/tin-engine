@@ -43,6 +43,7 @@ export default class Game {
 
 	goto(scene) {
 		scene.setSize(this.size.x, this.size.y);
+		scene.setParent(this);
 		this.scene = scene;
 	}
 

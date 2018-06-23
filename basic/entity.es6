@@ -52,7 +52,7 @@ export default class Entity {
 	}
 
 	relativeMouse() {
-		if (this.parent)
+		if (this.parent && this.parent.relativeMouse)
 			return this.parent.relativeMouse().dif(this.position);
 		else
 			return mouse.dif(this.position);
