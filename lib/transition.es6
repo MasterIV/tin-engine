@@ -21,7 +21,6 @@ export default class TransitionScene extends Scene {
 	}
 
 	setParent(p) {
-		console.log(p, this.toScene.constructor);
 		this.fromScene = p.scene;
 
 		this.fromScene.setSize(this.size.x, this.size.y);
