@@ -1,7 +1,6 @@
 import Entity from "./../basic/entity.es6";
 import Poly from "./../geo/poly.es6";
-import colors from "./../config/colors.es6";
-import config from "./../config/config.es6";
+import colors from "./../defaults/colors.es6";
 
 export default class PolyEntity extends Entity {
 	constructor(pos, vector_list, color) {
@@ -34,7 +33,7 @@ export default class PolyEntity extends Entity {
 		ctx.fill();
 		ctx.stroke();
 
-		if (config.debug) { // draws the surrounding rectangle of the polygon and the entity's position (red dot)
+		if (ctx.debug) { // draws the surrounding rectangle of the polygon and the entity's position (red dot)
 			const offset = this.poly.getOffset();
 			ctx.strokeRect(offset.x, offset.y, this.size.x, this.size.y);
 			ctx.fillStyle = '#ff0000';

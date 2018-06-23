@@ -2,6 +2,7 @@ import V2 from './../geo/v2.es6';
 import {Zero} from './../geo/v2.es6';
 import  Rect from './../geo/rect.es6';
 import  mouse from './../core/mouse.es6';
+import {arrayRemove} from './../util.es6';
 
 export default class Entity {
 	constructor(pos, size) {

@@ -1,18 +1,14 @@
 import Entity from './../basic/entity.es6';
-import  V2 from './../geo/v2.es6';
-import {Zero} from './../geo/v2.es6';
 import  graphics from './../core/graphic.es6';
-import  screen from './../config/screen.es6';
-import  config from './../config/config.es6';
 
 export default class Scene extends Entity {
 	constructor() {
-		super(Zero(), new V2(screen.w, screen.h));
+		super();
 		this.keyAware = [];
 	}
 
 	onDraw(ctx) {
-		if (config.debug) {
+		if (ctx.debug) {
 			ctx.fillStyle = "#dddddd";
 			ctx.fillRect(0, 0, this.size.x, this.size.y);
 		}

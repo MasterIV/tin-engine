@@ -1,5 +1,5 @@
 import Entity from './../basic/entity.es6';
-import fonts from './../config/fonts.es6';
+import fonts from './../defaults/fonts.es6';
 
 export default class TextEntity extends Entity {
 	constructor(pos, text, font) {

@@ -2,20 +2,20 @@
 /* ================================== Small helper function ================================ */
 /* ========================================================================================= */
 
-function limit( v, m ) {
+export function limit( v, m ) {
 	return Math.min( m, Math.max( -m, v ));
 }
 
-function rad_to_deg( rad ) {
+export function rad_to_deg( rad ) {
 	return rad * ( 180 / Math.PI );
 }
 
-function arrayRemove( arr, element ) {
+export function arrayRemove( arr, element ) {
 	arr.splice( arr.indexOf( element ), 1 );
 }
 
 /** Execute (if function) or return (if value) */
-function eor( v ) {
+export function eor( v ) {
 	return typeof v == 'function' ? v() : v;
 }
 
@@ -27,7 +27,7 @@ function eor( v ) {
 // Returns +1 if no intersection
 /* ========================================================================================= */
 
-function intersect( a, b, c ) {
+export function intersect( a, b, c ) {
 	if ( a.y == b.y && a.y == c.y ) { // a is on same y than b and c
 		if ( (b.x < a.x && a.x < c.x) || (c.x < a.x && a.x < b.x) )
 			return 0;

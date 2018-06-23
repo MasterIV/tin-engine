@@ -1,6 +1,5 @@
-import config from './../config/config.es6';
-import screen from './../config/screen.es6';
-import fonts from './../config/fonts.es6';
+import fonts from './../defaults/fonts.es6';
+import V2 from './../geo/v2';
 
 window.requestAnimFrame = ((() =>
 	window.requestAnimationFrame ||
@@ -11,62 +10,62 @@ window.requestAnimFrame = ((() =>
 	((callback, element) => { window.setTimeout(callback, 25); })
 ))();
 
-export default {
-	frames: 0,
-	fps: 25,
+export default class Game {
+	constructor(config) {
+		this.scale = 1;
+		this.size = config.screen ? new V2(config.screen.w, config.screen.h) : new V2(800, 600);
 
-	scene: null,
-	lastUpdate: 0,
-
-	display: null,
-	displayCtx: null,
-	buffer: null,
-	bufferCtx: null,
-
-	scale: 1,
-
-	resize() {
-		const fw = window.innerWidth / screen.w;
-		const fh = window.innerHeight / screen.h;
-
-		this.scale = Math.min(fw, fh);
-
-		this.display.width = screen.w * this.scale;
-		this.display.height = screen.h * this.scale;
-	},
-
-	init(scene) {
 		this.display = document.getElementById('gameframe');
 		this.displayCtx = this.display.getContext('2d');
 
-		if (screen.scale) this.resize();
-		else {
-			this.display.width = screen.w;
-			this.display.height = screen.h;
-		}
-
 		this.buffer = document.createElement('canvas');
 		this.bufferCtx = this.buffer.getContext('2d');
-		this.buffer.width = screen.w;
-		this.buffer.height = screen.h;
+		this.buffer.width = this.size.x;
+		this.buffer.height = this.size.y;
 
-		const self = this;
-		if (config.debug) setInterval(() => {
-			self.updateFramerate();
-		}, 1000);
-		if (screen.scale) window.onresize = () => {
-			self.resize();
-		};
+		if(config.debug) {
+			this.fps = 25;
+			this.frames = 0;
+			setInterval(this.updateFramerate.bind(this), 1000);
+			this.bufferCtx.debug = true;
+		}
 
+		if (config.scale) {
+			this.resize();
+			window.onresize = this.resize.bind(this);
+		} else {
+			this.display.width = this.size.x;
+			this.display.height = this.size.y;
+		}
+
+		this.loop = this.loop.bind(this);
+	}
+
+	goto(scene) {
+		scene.setSize(this.size.x, this.size.y);
 		this.scene = scene;
+	}
+
+	run(scene) {
+		this.goto( scene );
 		this.lastUpdate = Date.now();
 		this.loop();
-	},
+	}
+
+	resize() {
+		const fw = window.innerWidth / this.size.x;
+		const fh = window.innerHeight / this.size.y;
+
+		this.scale = Math.min(fw, fh);
+
+		this.display.width = this.size.x * this.scale;
+		this.display.height = this.size.y * this.scale;
+	}
 
 	updateFramerate() {
 		this.fps = this.frames;
 		this.frames = 0;
-	},
+	}
 
 	loop() {
 		const now = Date.now();
@@ -80,25 +79,22 @@ export default {
 		this.lastUpdate = now;
 		this.frames++;
 
-		const self = this;
-		requestAnimFrame(() => {
-			self.loop();
-		});
-	},
+		requestAnimFrame(() => this.loop());
+	}
 
 	update(delta) {
 		this.scene.update(delta);
-	},
+	}
 
 	draw() {
 		this.scene.draw(this.bufferCtx);
 
 		this.display.width = this.display.width;
-		this.displayCtx.drawImage(this.buffer, 0, 0, screen.w * this.scale, screen.h * this.scale);
+		this.displayCtx.drawImage(this.buffer, 0, 0, this.size.x * this.scale, this.size.y * this.scale);
 
-		if (config.debug) {
+		if (this.bufferCtx.debug) {
 			fonts.frames.apply(this.displayCtx);
 			this.displayCtx.fillText(this.fps, 15, 15);
 		}
 	}
-};
+}

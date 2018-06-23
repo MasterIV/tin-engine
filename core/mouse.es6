@@ -1,6 +1,5 @@
 import V2 from './../geo/v2.es6';
-import  game from './../core/game.es6';
-import  config from './../config/config.es6';
+import game from './../core/game.es6';
 
 const mouse = new V2(0, 0);
 
@@ -76,11 +75,5 @@ mouse.init = function () {
 	};
 
 };
-
-if (!config.debug)
-	document.addEventListener("contextmenu", e => {
-		e.preventDefault();
-	}, false);
-
 
 export default mouse;
