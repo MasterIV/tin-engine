@@ -1,13 +1,13 @@
 import V2 from './../geo/v2.es6';
 
 export default class GridCollider {
-	constructor(subject, map, obstacles) {
+	constructor(subject, map, obstacles = []) {
 		this.subject = subject;
 		this.map = map;
-		this.obstacles = obstacles || [];
+		this.obstacles = obstacles;
 	}
 
-	static factory(map, obstacles) {
+	static factory(map, obstacles = []) {
 		return subject => new GridCollider(subject, map, obstacles);
 	}
 
