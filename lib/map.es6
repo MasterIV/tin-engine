@@ -1,6 +1,7 @@
 import Entity from './../basic/entity.es6';
 import graphics from './../core/graphic.es6';
 import V2 from './../geo/v2.es6';
+import {Zero} from './../geo/v2.es6';
 
 function imagePath(url) {
 	return url.substr(url.indexOf("img/"));

@@ -1,5 +1,6 @@
 import Entity from "./../basic/entity.es6";
 import Random from "./../definition/random.es6";
+import {Zero} from './../geo/v2.es6';
 
 export default class Particles extends Entity {
 	constructor(pos, config) {

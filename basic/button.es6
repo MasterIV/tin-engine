@@ -3,6 +3,7 @@ import  V2 from './../geo/v2.es6';
 import  TextEntity from './../basic/text.es6';
 import  RectEntity from './../basic/rect.es6';
 import  ImageEntity from './../basic/image.es6';
+import {Zero} from './../geo/v2.es6';
 
 export default class Button extends Entity {
 	constructor(pos, callback) {

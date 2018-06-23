@@ -4,6 +4,7 @@ import  colors from './../config/colors.es6';
 import  RectEntity from './../basic/rect.es6';
 import  graphics from './../core/graphic.es6';
 import  Animation from './../lib/animation.es6';
+import {Zero} from './../geo/v2.es6';
 
 graphics.add('img/death.png');
 
