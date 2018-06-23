@@ -55,11 +55,13 @@ export default class V2 {
 	grid(w, h) {
 		this.x = Math.floor(this.x / w);
 		this.y = Math.floor(this.y / h);
+		return this;
 	}
 
 	invert() {
 		this.x *= -1;
 		this.y *= -1;
+		return this;
 	}
 
 	inverse() {
@@ -78,13 +80,25 @@ export default class V2 {
 		return new V2(Math.abs(this.x), Math.abs(this.y));
 	}
 
+	empty() {
+		return !this.x && !this.y;
+	}
+
+	set(x, y) {
+		this.x = x;
+		this.y = y;
+		return this;
+	}
+
 	fromDeg(angle, length) {
 		this.fromRad(angle * ( Math.PI / 180 ), length);
+		return this;
 	}
 
 	fromRad(angle, length) {
 		this.x = Math.round(Math.sin(angle) * length);
 		this.y = -Math.round(Math.cos(angle) * length);
+		return this;
 	}
 
 	static fromDeg(angle, length) {
