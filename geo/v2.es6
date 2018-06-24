@@ -1,7 +1,7 @@
 export default class V2 {
 	constructor(x, y) {
-		this.x = x;
-		this.y = y;
+		this.x = +x;
+		this.y = +y;
 	}
 
 	sum(v) {
