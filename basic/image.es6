@@ -4,8 +4,8 @@ import  Entity from './../basic/entity.es6';
 
 export default class ImageEntity extends Entity {
 	constructor(pos, src, scale) {
+		super(pos, new V2(graphics[src].width, graphics[src].height));
 		this.img = graphics[src];
-		super(pos, new V2(this.img.width, this.img.height));
 		this.scale = scale || 1;
 	}
 
