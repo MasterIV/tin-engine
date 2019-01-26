@@ -14,6 +14,7 @@ export default class Game {
 	constructor(config) {
 		this.scale = 1;
 		this.size = config.screen ? new V2(config.screen.w, config.screen.h) : new V2(800, 600);
+		this.smooth = config.smooth;
 
 		this.display = document.getElementById('gameframe');
 		this.displayCtx = this.display.getContext('2d');
@@ -91,6 +92,7 @@ export default class Game {
 		this.scene.draw(this.bufferCtx);
 
 		this.display.width = this.display.width;
+		this.displayCtx.imageSmoothingEnabled = this.smooth;
 		this.displayCtx.drawImage(this.buffer, 0, 0, this.size.x * this.scale, this.size.y * this.scale);
 
 		if (this.bufferCtx.debug) {
