@@ -4,6 +4,8 @@ import  V2 from './../geo/v2.es6';
 
 export default class Animation extends Entity {
 	constructor(img, pos, frames, speed, loop) {
+		super(pos);
+
 		this.frames = typeof frames == 'number' ? new V2(frames, 1) : frames;
 		this.img = graphics[img];
 		this.loop = loop;
@@ -13,10 +15,7 @@ export default class Animation extends Entity {
 		this.frame = 0;
 		this.state = 0;
 
-		super(
-				pos,
-				new V2(this.img.width / this.frames.x, this.img.height / this.frames.y)
-		);
+		this.size = new V2(this.img.width / this.frames.x, this.img.height / this.frames.y);
 	}
 
 	onUpdate(delta) {
