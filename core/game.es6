@@ -59,6 +59,7 @@ export default class Game {
 		const fh = window.innerHeight / this.size.y;
 
 		this.scale = Math.min(fw, fh);
+		if(!this.smooth) this.scale = Math.max(1, this.scale | 0);
 
 		this.display.width = this.size.x * this.scale;
 		this.display.height = this.size.y * this.scale;
