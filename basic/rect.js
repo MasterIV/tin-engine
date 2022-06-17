@@ -1,5 +1,5 @@
-import Entity from './../basic/entity.es6';
-import colors from './../defaults/colors.es6';
+import Entity from './../basic/entity.js';
+import colors from './../defaults/colors.js';
 
 export default class RectEntity extends Entity {
 	constructor(pos, size, color = colors.default) {

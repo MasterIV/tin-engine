@@ -1,5 +1,5 @@
-import V2 from './../geo/v2.es6';
-import Rect from './../geo/rect.es6';
+import V2 from './v2.js';
+import Rect from './rect.js';
 
 export default class Poly {
 	constructor(vector_list) {

@@ -1,4 +1,4 @@
-import V2 from './../geo/v2.es6';
+import V2 from './v2.js';
 
 export default class Rect {
 	constructor(p1, p2) {

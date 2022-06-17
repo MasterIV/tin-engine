@@ -1,9 +1,9 @@
-import Entity from './../basic/entity.es6';
-import  V2 from './../geo/v2.es6';
-import  TextEntity from './../basic/text.es6';
-import  RectEntity from './../basic/rect.es6';
-import  ImageEntity from './../basic/image.es6';
-import {Zero} from './../geo/v2.es6';
+import Entity from './../basic/entity.js';
+import  V2 from './../geo/v2.js';
+import  TextEntity from './../basic/text.js';
+import  RectEntity from './../basic/rect.js';
+import  ImageEntity from './../basic/image.js';
+import {Zero} from './../geo/v2.js';
 
 export default class Button extends Entity {
 	constructor(pos, callback) {

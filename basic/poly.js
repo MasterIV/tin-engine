@@ -1,6 +1,6 @@
-import Entity from "./../basic/entity.es6";
-import Poly from "./../geo/poly.es6";
-import colors from "./../defaults/colors.es6";
+import Entity from "./../basic/entity.js";
+import Poly from "./../geo/poly.js";
+import colors from "./../defaults/colors.js";
 
 export default class PolyEntity extends Entity {
 	constructor(pos, vector_list, color) {

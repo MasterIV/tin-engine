@@ -1,6 +1,6 @@
-import graphics from './../core/graphic.es6';
-import  V2 from './../geo/v2.es6';
-import  Entity from './../basic/entity.es6';
+import graphics from './../core/graphic.js';
+import  V2 from './../geo/v2.js';
+import  Entity from './../basic/entity.js';
 
 export default class ImageEntity extends Entity {
 	constructor(pos, src, scale) {

@@ -1,4 +1,4 @@
-import FontStyle from './../definition/font.es6';
+import FontStyle from './../definition/font.js';
 
 export default {
     default: new FontStyle(40, '#000', 'sans-serif', '#555' ),

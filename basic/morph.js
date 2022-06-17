@@ -1,4 +1,4 @@
-import Easing from './../definition/easing.es6';
+import Easing from './../definition/easing.js';
 
 export default class Morph {
 	constructor(finalAttributes, duration, easingFunction, callback) {

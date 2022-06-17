@@ -1,5 +1,5 @@
-import Entity from './entity.es6';
-import colors from '../defaults/colors.es6';
+import Entity from './entity.js';
+import colors from '../defaults/colors.js';
 
 export default class RoundedRectEntity extends Entity {
 	static path(ctx, w, h, r, borderIn = 0) {

@@ -1,4 +1,4 @@
-import V2 from './../geo/v2.es6';
+import V2 from './../geo/v2.js';
 
 const mouse = new V2(0, 0);
 var game;

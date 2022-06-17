@@ -1,4 +1,4 @@
-import V2 from './../geo/v2.es6';
+import V2 from '../geo/v2.js';
 
 export default {
     between(min, max) {

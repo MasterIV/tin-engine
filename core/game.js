@@ -1,5 +1,5 @@
-import fonts from './../defaults/fonts.es6';
-import V2 from './../geo/v2';
+import fonts from './../defaults/fonts.js';
+import V2 from './../geo/v2.js';
 
 window.requestAnimFrame = ((() =>
 	window.requestAnimationFrame ||
@@ -11,12 +11,12 @@ window.requestAnimFrame = ((() =>
 ))();
 
 export default class Game {
-	constructor(config) {
+	constructor(canvas, config) {
 		this.scale = 1;
 		this.size = config.screen ? new V2(config.screen.w, config.screen.h) : new V2(800, 600);
 		this.smooth = config.smooth;
 
-		this.display = document.getElementById('gameframe');
+		this.display = canvas;
 		this.displayCtx = this.display.getContext('2d');
 
 		this.buffer = document.createElement('canvas');

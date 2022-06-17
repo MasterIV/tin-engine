@@ -1,4 +1,4 @@
-import Entity from './../basic/entity.es6';
+import Entity from './../basic/entity.js';
 
 class Layout extends Entity {
 	constructor(pos, margin, spacing) {
