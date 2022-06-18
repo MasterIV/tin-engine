@@ -11,12 +11,12 @@ window.requestAnimFrame = ((() =>
 ))();
 
 export default class Game {
-	constructor(canvas, config) {
+	constructor(config, canvas) {
 		this.scale = 1;
 		this.size = config.screen ? new V2(config.screen.w, config.screen.h) : new V2(800, 600);
 		this.smooth = config.smooth;
 
-		this.display = canvas;
+		this.display = canvas || document.getElementById('gameframe');
 		this.displayCtx = this.display.getContext('2d');
 
 		this.buffer = document.createElement('canvas');

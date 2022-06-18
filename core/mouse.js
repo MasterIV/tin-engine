@@ -5,8 +5,9 @@ var game;
 
 mouse.init = function (g) {
 	const self = this;
-	const gameframe = document.getElementById('gameframe');
+	const gameframe = g.display;
 	let primaryTouchId = null;
+	
 	game = g;
 
 	const getPrimaryTouch = touches => {
@@ -20,8 +21,8 @@ mouse.init = function (g) {
 	};
 
 	gameframe.onmousemove = ev => {
-		self.x = ( ev.clientX - gameframe.offsetLeft ) / game.scale;
-		self.y = ( ev.clientY - gameframe.offsetTop ) / game.scale;
+		self.x = ( ev.layerX - gameframe.offsetLeft ) / game.scale;
+		self.y = ( ev.layerY - gameframe.offsetTop ) / game.scale;
 	};
 
 	gameframe.onclick = ev => {

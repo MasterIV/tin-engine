@@ -40,8 +40,8 @@ export default class Button extends Entity {
 
 	img(src, scale) {
 		const img = new ImageEntity(Zero(), src, scale);
-		this.size.x = Math.max(img.size.x, this.size.x);
-		this.size.y = Math.max(img.size.y, this.size.y);
+		this.size.x = Math.max(img.size.x*scale, this.size.x);
+		this.size.y = Math.max(img.size.y*scale, this.size.y);
 		this.add(img);
 		return this;
 	}

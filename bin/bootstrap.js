@@ -1,0 +1,1 @@
+// Script to initialize a new project

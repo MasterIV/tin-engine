@@ -1,0 +1,33 @@
+canvas {
+	position: relative;
+	top: 0;
+	left: 0;
+	background: white;
+	display: block;
+}
+
+#loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 10;
+	text-align: center;
+	width: 400px;
+	margin-left: -200px;
+	margin-top: -100px;
+	background: black;
+	border-radius: 8px;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: #BDF;
+}
+
+code {
+	white-space: pre;
+	background: #f9f9f9;
+	display: block;
+	padding: 5px 10px;
+	overflow: auto;
+	border-radius: 5px;
+}
