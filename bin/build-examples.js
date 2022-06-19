@@ -1,9 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const webpack = require('webpack');
 
-const dir = path.join(__dirname, '/../doc')
-if(fs.existsSync(dir))
-    fs.rmdirSync(dir);
-fs.mkdirSync(dir);
+const buildExamples = require('../examples/build');
 
+fs.writeFileSync(path.join(__dirname, '..', 'index.html'), buildExamples());
