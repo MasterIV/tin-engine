@@ -13,7 +13,8 @@ Scene.prototype.onDraw = ctx => {
 };
 
 export default function renderExamples(examples) {
-	let current = window.location.pathname.substring(1);
+	let url = window.location.href;
+	let current = url.substring(url.indexOf('?')+1);
 	if(!examples[current]) current = Object.keys(examples)[0];
 
 	document.body.innerHTML = `<div class="container" style="margin-top: 20px">
@@ -23,7 +24,7 @@ export default function renderExamples(examples) {
 					${Object.keys(examples).map(k => {
 						const path = examples[k].path;
 						const classes = "list-group-item list-group-item-action " + (current == k && 'active');
-						return `<a href="${k}" class="${classes}">${path.substr(0, path.length-11)}</a>`;
+						return `<a href="?${k}" class="${classes}">${path.substr(0, path.length-11)}</a>`;
 					}).join('')}
 				</div>
 			</div>
