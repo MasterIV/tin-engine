@@ -19,12 +19,13 @@
     "url": "https://github.com/MasterIV/tin-engine/issues"
   },
   "dependencies": {
-    "express": "^4.18.1"
-  },
-  "devDependencies": {
-    "webpack": "^5.73.0"
+    "chalk": "^4.*",
+    "express": "^4.*",
+    "yargs": "^17.5.1"
   },
   "scripts": {
-    "examples": "node bin/server-examples.js"
-  }
+    "build": "node bin/build.js",
+    "examples": "node bin/cli.js examples"
+  },
+  "bin": "./bin/cli.js"
 }

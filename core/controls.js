@@ -1,6 +1,20 @@
 let game;
 
 export default {
+	keys: {
+		32: 'space',
+		27: 'esc',
+		13: 'enter',
+		38: 'up',
+		87: 'up',
+		40: 'down',
+		83: 'down',
+		37: 'left',
+		65: 'left',
+		39: 'right',
+		68: 'right',
+	},
+
 	init(g) {
 		const self = this;
 		game = g;
@@ -14,32 +28,30 @@ export default {
 		};
 	},
 
+	register(code, key) {
+		this.keys[code] = key;
+	},
+
 	emit(type, key) {
 		if (game && game.scene && game.scene[type])
 			game.scene[type](key);
 	},
 
 	translate(type, code) {
-		switch (code) {
-			case 116: return true; break; // F5
-			case 32: this.emit(type, 'space'); break;
-			case 27: this.emit(type, 'esc'); break;
-			case 13: this.emit(type, 'enter'); break;
+		// Don't suppress F5
+		if(code === 116) return true;
 
-			case 38: case 87: this.emit(type, 'up'); break;
-			case 40: case 83: this.emit(type, 'down'); break;
-			case 37: case 65: this.emit(type, 'left'); break;
-			case 39: case 68: this.emit(type, 'right'); break;
-		}
+		if(this.keys[code])
+			this.emit(type, this.keys[code]);
 
 		return false;
 	},
 
-	down(evt = (event) ? event : null) {
+	down(evt) {
 		return this.translate('down', evt.keyCode);
 	},
 
-	up(evt = (event) ? event : null) {
+	up(evt) {
 		return this.translate('up', evt.keyCode);
 	}
 };

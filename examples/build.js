@@ -9,11 +9,11 @@ function findExamples(dir) {
         const name = path.join(dir, f);
         const stats = fs.statSync(name);
 
-        if(stats.isDirectory()) 
+        if(stats.isDirectory())
             findExamples(name);
-        else if(f.endsWith('.example.js')) 
+        else if(f.endsWith('.example.js'))
             examples.push({
-                id: f.substring(0, f.length-11), 
+                id: f.substring(0, f.length-11),
                 path: path.relative(path.join(__dirname, '..'), name).replace(path.sep, '/')
             });
     });
@@ -29,6 +29,6 @@ module.exports = function() {
     let script = "import renderExamples from './examples/examples.js';\n";
     script += examples.map(e => `import ${e.id} from './${e.path}';\n`).join('');
     script += "\nwindow.onload = () => renderExamples({\n" + examples.map(e => `  ${e.id}: {examples: ${e.id}, path: '${e.path}'},\n`).join('') + "});";
-    
+
     return template_index.replace('{{ script }}', `<script type="module">${script}</script>`);
 };

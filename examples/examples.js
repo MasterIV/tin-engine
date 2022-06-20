@@ -31,11 +31,11 @@ export default function renderExamples(examples) {
 			<div class="col">
 				${examples[current].examples.map((e, i) => {
 					return `<div class="card" style="width: ${config.screen.w+2}px">
-							<canvas id="example${i}" moz-opaque opaque style="width: ${config.screen.w}px"></canvas>
+							<canvas id="example${i}" height="0" moz-opaque opaque style="width: ${config.screen.w}px"></canvas>
 							<div class="card-body">
 								<h5 class="card-title">${e.title}</h5>
 								<p class="card-text">${e.description}</p>
-								<code class="language-js">${hljs.highlight(e.scene.toString(), {language: 'js'}).value}</code>
+								<code class="language-js">${hljs.highlight(e.scene ? e.scene.toString() : e.code, {language: 'js'}).value}</code>
 							</div>
 						</div>`;
 				}).join('')}
@@ -43,8 +43,10 @@ export default function renderExamples(examples) {
 		</div>
 	</div>`;
 
-	examples[current].examples.forEach((e, i) => {
-		const game = new Game(config, document.getElementById('example'+i));
-		game.run(new e.scene());
-	});
+	examples[current].examples
+		.filter(e => e.scene)
+		.forEach((e, i) => {
+			const game = new Game(config, document.getElementById('example'+i));
+			game.run(new e.scene());
+		});
 }

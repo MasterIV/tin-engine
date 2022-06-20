@@ -1,4 +1,4 @@
-import TransitionScene from './../lib/transition.es6';
+import TransitionScene from './../lib/transition.js';
 
 export default class SlideInRightTransition extends TransitionScene {
 	constructor(toScene, duration, easing) {
