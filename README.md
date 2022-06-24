@@ -45,7 +45,25 @@ The nesting of entities can help you to group elements. All elements are usually
 
 ## Entity Lifecycle
 
-update & draw
+As each element in the scene graph is an entity, we should have a close look at the lifecycle of such an entity. The two main methods that are called in every frame are `update(delta)` and `draw(ctx)`. Where delta is the amount of milliseconds that have elapsed since the last frame and ctx is a canvas context 2D. In their default implementation these methods will dispatch the calls to all children and should therefore not be overwritten. If you still decide to do so, keep in mind that children will not be updated or drawn any more (which could be the desired behavior in some cases). If you want to implement additional behavior during these cycles you can implement `onUpdate(delta)` and `onDraw(ctx)`. These methods will be called before the call is dispatched to child entities.
+
+Here is a summary of how the lifecycle of an entity looks like:
+
+ - entity is passed to its parents `add` method
+ - `setParent` is called on the entity, informing it of it's parent element
+ - in each iteration of the game loop `update` will be called
+     - if implemented, `onUpdate` will be called
+     - `update` on all children is called
+ - in each iteration of the game loop `draw` will be called
+     - if implemented, `onDraw` will be called
+     - `draw` on all children is called
+ - additionally mouse events (`click`, `mouseodwn`, `mouseup`) might be called as soon as they happen:
+     - if an equivalent `on-` method (for example: `onClick`) is implemented it will be called
+     - if it returned true, the click will not be dispatched any further
+     - otherwise events are dispatched to the children, in reversed order
+- at the end `remove` might be called on the parent with the element as an argument. (Or the entity calls `this.parent.remove(this)`)
+
+For more details you can also view [the code of the entity class](https://github.com/MasterIV/tin-engine/blob/master/basic/entity.js).
 
 ## UI Design Toolkit
 
