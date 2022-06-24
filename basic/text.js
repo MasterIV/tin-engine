@@ -2,10 +2,10 @@ import Entity from './entity.js';
 import fonts from '../defaults/fonts.js';
 
 export default class TextEntity extends Entity {
-	constructor(pos, text, font) {
+	constructor(pos, text, font = fonts.default) {
 		super(pos);
 		this.text = text;
-		this.font = font || fonts.default;
+		this.font = font;
 	}
 
 	onDraw(ctx) {

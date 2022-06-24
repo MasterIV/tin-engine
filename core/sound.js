@@ -1,21 +1,21 @@
 export default {
-	sampels: [],
+	samples: {},
 	urls: [],
 
 	play(file) {
 		const self = this;
 
-		if (!this.sampels[file])
-			this.sampels[file] = [];
+		if (!this.samples[file])
+			this.samples[file] = [];
 
-		if (this.sampels[file].length) {
-			var sample = this.sampels[file].pop();
+		if (this.samples[file].length) {
+			var sample = this.samples[file].pop();
 			sample.play();
 			return sample;
 		} else {
 			var sample = new Audio(file);
 			sample.onended = function () {
-				self.sampels[file].push(this);
+				self.samples[file].push(this);
 			};
 			sample.play();
 			return sample;
@@ -40,7 +40,7 @@ export default {
 
 				const sample = new Audio(url);
 				sample.oncanplaythrough = complete;
-				this.sampels[url] = [sample];
+				this.samples[url] = [sample];
 			}
 		}
 

@@ -34,14 +34,9 @@ export default class Particles extends Entity {
 	}
 
 	// do not bother to dispatch mouse events
-	click(pos) {
-	}
-
-	mousedown(pos) {
-	}
-
-	mouseup(pos) {
-	}
+	click(pos) {}
+	mousedown(pos) {}
+	mouseup(pos) {}
 
 	onUpdate(delta) {
 		this.timer += delta;

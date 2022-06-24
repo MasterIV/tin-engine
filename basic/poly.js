@@ -3,13 +3,15 @@ import Poly from "./../geo/poly.js";
 import colors from "./../defaults/colors.js";
 
 export default class PolyEntity extends Entity {
-	constructor(pos, vector_list, color) {
-		this.color = color || colors.default;
-		this.poly = new Poly(vector_list);
-
+	constructor(pos, vector_list, color = colors.default) {
 		// Be careful that a rectangle of 0, 0, size.x, size.y does not surround the polygon!
-		// See PolyEntity.clearOffset()
-		super(pos, this.poly.getSize());
+		// See PolyEntity.clearOffset();
+		const poly = new Poly(vector_list)
+		super(pos, poly.getSize());
+
+		this.color = color;
+		this.poly = poly;
+
 	}
 
 	onDraw(ctx) {

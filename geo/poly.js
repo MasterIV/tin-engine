@@ -1,5 +1,6 @@
 import V2 from './v2.js';
 import Rect from './rect.js';
+import { intersect } from '../util.js';
 
 export default class Poly {
 	constructor(vector_list) {
@@ -66,4 +67,3 @@ export default class Poly {
 		return t >= 0;
 	}
 }
-
