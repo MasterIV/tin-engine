@@ -56,6 +56,8 @@ export class VerticalLayout extends Layout {
 				e.position.x = ( this.size.x - e.size.x ) / 2;
 			} else if (orientation == "right") {
 				e.position.x = this.size.x - e.size.x - this.margin;
+			} else {
+				e.position.x = 0;
 			}
 		}
 	}
@@ -80,6 +82,8 @@ export class HorizontalLayout extends Layout {
 				e.position.y = ( this.size.y - e.size.y ) / 2;
 			} else if (orientation == "bottom") {
 				e.position.y = this.size.y - e.size.y - this.margin;
+			} else {
+				e.position.y = 0;
 			}
 		}
 	}

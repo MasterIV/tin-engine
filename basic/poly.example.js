@@ -1,8 +1,6 @@
 import Scene from '../lib/scene.js';
 import V2 from '../geo/v2.js';
 import mouse from '../core/mouse.js';
-import Colors from '../definition/colors.js';
-import FontStyle from '../definition/font.js';
 import PolyEntity from './poly.js';
 
 class BasicExampleScene extends Scene {

@@ -1,8 +1,8 @@
 export default class FontStyle {
-	constructor(size, color, type, hover) {
+	constructor(size, color = 'black', type = 'sans-serif', hover) {
 		this.size = size;
-		this.color = color || 'black';
-		this.type = type || 'sans-serif';
+		this.color = color;
+		this.type = type;
 		this.hover = hover;
 
 		this.align = 'center';
