@@ -32,7 +32,10 @@ export default class TextEntity extends Entity {
 						line += next;
 					}
 				}
+				if (line.trim())
+					this.text.push(line);
 
+				this.size.y = Math.round(this.text.length * this.font.size * 1.2);
 				this.wrapSize = this.size.clone();
 			}
 			let y = 0;
@@ -53,7 +56,6 @@ export default class TextEntity extends Entity {
 			this.size = this.parent.size.clone();
 			if (margin) {
 				this.size.x -= margin;
-				this.size.y -= margin;
 				this.position.set(margin, margin);
 			}
 		}
