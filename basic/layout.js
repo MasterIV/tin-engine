@@ -35,6 +35,14 @@ class Layout extends Entity {
 			}
 		}
 	}
+
+	remove(e) {
+		Entity.prototype.remove.call(e);
+		const ents = [...this.entities];
+		this.entities = [];
+		for (let i = 0; i < ents.length; i++)
+			this.add(ents[i]);
+	}
 }
 
 export class VerticalLayout extends Layout {
@@ -61,6 +69,7 @@ export class VerticalLayout extends Layout {
 			}
 		}
 	}
+
 }
 
 export class HorizontalLayout extends Layout {
