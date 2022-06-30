@@ -35,7 +35,6 @@ class WordWrapExampleScene extends Scene {
 		rect.add(text);
 		// Then enable word wrap with a 5 pixel margin
 		text.wordWrap(5);
-		window.game = this;
 	}
 }
 
