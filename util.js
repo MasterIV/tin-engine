@@ -19,6 +19,14 @@ export function eor( v ) {
 	return typeof v == 'function' ? v() : v;
 }
 
+export function checkBit( number, bit ) {
+	return ((number >> bit) % 2 != 0);
+}
+
+export function clearBit( number, bit ) {
+	return number & ~(1 << bit);
+}
+
 /* ========================================================================================= */
 /* ===================================== Polygon stuff ===================================== */
 // Given three vectors (V2) makes a right headed ray cast from a to line b/c
