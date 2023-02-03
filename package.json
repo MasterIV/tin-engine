@@ -1,31 +1,32 @@
 {
-  "name": "tin-engine",
-  "version": "0.1.3",
-  "description": "Simple game engine to make small canvas based games using es6",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MasterIV/tin-engine.git"
-  },
-  "keywords": [
-    "game",
-    "engine",
-    "jam",
-    "gamejam"
-  ],
-  "author": "Tobias Rojahn",
-  "license": "MIT",
-  "homepage": "https://github.com/MasterIV/tin-engine#readme",
-  "bugs": {
-    "url": "https://github.com/MasterIV/tin-engine/issues"
-  },
-  "dependencies": {
-    "chalk": "^4.*",
-    "express": "^4.*",
-    "yargs": "^17.5.1"
-  },
-  "scripts": {
-    "build": "node bin/build.js",
-    "examples": "node bin/cli.js examples"
-  },
-  "bin": "./bin/cli.js"
+	"name": "tin-engine",
+	"version": "0.1.3",
+	"description": "Simple game engine to make small canvas based games using es6",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/MasterIV/tin-engine.git"
+	},
+	"keywords": [
+		"game",
+		"engine",
+		"jam",
+		"gamejam"
+	],
+	"author": "Tobias Rojahn",
+	"license": "MIT",
+	"homepage": "https://github.com/MasterIV/tin-engine#readme",
+	"bugs": {
+		"url": "https://github.com/MasterIV/tin-engine/issues"
+	},
+	"dependencies": {
+		"chalk": "^4.*",
+		"express": "^4.*",
+		"yargs": "^17.5.1"
+	},
+	"scripts": {
+		"build": "node bin/build.js",
+		"examples": "node bin/cli.js examples",
+		"designer": "node bin/cli.js designer"
+	},
+	"bin": "./bin/cli.js"
 }
